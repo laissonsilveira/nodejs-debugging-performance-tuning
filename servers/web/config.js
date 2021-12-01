@@ -22,7 +22,7 @@ module.exports = {
     protocol: 'http',
   },
   server: {
-    port: 5000,
+    port: process.env.PORT || 5000,
   },
   session: {
     secret: 'darth jarjar',
