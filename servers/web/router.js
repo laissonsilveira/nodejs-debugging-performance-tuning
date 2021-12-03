@@ -16,7 +16,7 @@ router.route('/')
     ]).then(([pending, final]) => response.render('index', {
       title: 'Home',
       pending,
-      final,
+      final
     })));
 
 router.route('/games')
@@ -31,19 +31,20 @@ router.param('game_id', async (request, response, next, id) => {
 
 router.route('/games/:game_id')
   .get(async (request, response, next) => {
-    if (!request.game) return next();
-    const { body: rules } = await gamesClient.rules(request.id);
+    const { game, id, session } = request;
+    if (!game) return next();
+    const { body: rules } = await gamesClient.rules(id);
 
     const messages = [];
-    if (request.session.message) {
-      messages.push(request.session.message);
-      delete request.session.message;
+    if (session.message) {
+      messages.push(session.message);
+      delete session.message;
     }
 
     return response.render('game', {
-      title: `Game #${request.game.id}`,
-      viewerPlayerId: request.session.playerId,
-      game: request.game,
+      title: `Game #${game.id}`,
+      viewerPlayerId: session.playerId,
+      game,
       rules,
       messages,
     });

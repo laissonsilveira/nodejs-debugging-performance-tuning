@@ -15,7 +15,6 @@ function create(raw) {
   return validation.Player.validate(raw)
     .then((validated) => {
       player = new Player(validated);
-
       return knex
         .insert(validated)
         .into('players');
@@ -46,5 +45,5 @@ function get(id) {
 
 module.exports = {
   create,
-  get,
+  get
 };

@@ -13,7 +13,7 @@ module.exports = (config) => {
       uri: `${config.protocol}://${config.host}:${config.port}/api/v1/games`,
       method: 'POST',
       body: {
-        player1id,
+        player1id
       },
     }, requestId);
   }

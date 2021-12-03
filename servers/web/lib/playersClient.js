@@ -30,6 +30,6 @@ module.exports = (config) => {
 
   return {
     create,
-    get,
+    get
   };
 };

@@ -2,13 +2,22 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "node",
+            "name": "Launch via NPM",
             "request": "launch",
-            "name": "Launch Program",
+            "runtimeArgs": [
+                "run-script",
+                "start"
+            ],
+            "runtimeExecutable": "npm",
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/rock-paper-scissors/servers/web/index.js"
+            "type": "node",
+            "env": {
+                "NODE_ENV": "production",
+                "CLEARDB_DATABASE_URL": "mysql://bc0ee671a70f6c:fedc4a4b@us-cdbr-east-04.cleardb.com/heroku_7ebab73c6c36ee2?reconnect=true"
+            },
+            "console": "integratedTerminal"
         }
     ]
 }

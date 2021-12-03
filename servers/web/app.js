@@ -27,6 +27,7 @@ app.use('/bootstrap/css', express.static(path.join(process.env.NODE_PATH, '/boot
 app.use('/bootstrap/js', express.static(path.join(process.env.NODE_PATH, '/bootstrap/dist/js')));
 app.use('/jquery/js', express.static(path.join(process.env.NODE_PATH, '/jquery/dist')));
 app.use('/popper/js', express.static(path.join(process.env.NODE_PATH, '/popper.js/dist/umd')));
+app.use('/socket/js', express.static(path.join(process.env.NODE_PATH, '/socket.io/client-dist')));
 
 app.use(session);
 
@@ -34,7 +35,7 @@ app.use(async (request, response, next) => {
   if (request.session.playerId) {
     return next();
   }
-  const result = await playersClient.create(request.id, request.id);
+  const result = await playersClient.create(request.id);
   request.session.playerId = result.body.id;
   return next();
 });

@@ -11,4 +11,4 @@ module.exports.up = knex => knex.schema.hasTable('players').then((exists) => {
   return true;
 });
 
-module.exports.down = () => {};
+module.exports.down = () => { };
