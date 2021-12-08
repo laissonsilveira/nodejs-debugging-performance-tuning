@@ -6,7 +6,7 @@ Node.js apps are known for their blazing-fast speed, but hard-to-find bugs and s
 
 A multi-player Rock, Paper, Scissors game written in Node.js.
 
-[Link to project example this course](https://github.com/laissonsilveira/nodejs-debugging-performance-tuning/tree/main/)
+[Link to project example](https://github.com/laissonsilveira/nodejs-debugging-performance-tuning/tree/main/)
 
 Players are automatically created per session. To test, use two browser sessions that don't share cookies. For example, you could use a regular browser window and an incognito / private browser window.
 
